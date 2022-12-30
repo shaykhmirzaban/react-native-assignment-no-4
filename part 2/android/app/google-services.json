@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "318143190441",
+    "project_id": "pizza-application-451d4",
+    "storage_bucket": "pizza-application-451d4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:318143190441:android:cea352a202a85cd22c20b8",
+        "android_client_info": {
+          "package_name": "com.react_native_practice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "318143190441-l122u67jj1o9bhpk3crjj77bmr5jidc8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMRWR6mDUxL7vQy3Xtvc0ZRDC-YvKBr7A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "318143190441-l122u67jj1o9bhpk3crjj77bmr5jidc8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
