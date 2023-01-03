@@ -6,8 +6,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import LoginScreen from '../screens/LoginScreen';
 import SignUpScreen from '../screens/SignUpScreen';
+import TabNavigation from './TabNavigation';
 import HomeScreen from '../screens/Home/HomeScreen';
-import AdminScreen from '../screens/Admin/AdminScreen';
 
 const Stack = createNativeStackNavigator();
 function StackNavigation() {
@@ -30,7 +30,7 @@ function StackNavigation() {
       />
       <Stack.Screen
         name="AdminScreen"
-        component={AdminScreen}
+        component={TabNavigation}
         options={{headerShown: false}}
       />
       <Stack.Screen

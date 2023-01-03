@@ -9,6 +9,7 @@ function WelcomeScreen({navigation}) {
       <StatusBar backgroundColor={'#fff'} barStyle={'dark-content'} />
       {/* image */}
       <Image
+        resizeMode="contain"
         style={{width: '100%', height: '60%'}}
         source={require('../images/welcome.jpg')}
       />

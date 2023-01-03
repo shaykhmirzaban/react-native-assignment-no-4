@@ -56,6 +56,7 @@ function LoginScreen({navigation}) {
   return (
     <View style={{width: '100%', height: '100%'}}>
       <Image
+        resizeMode="cover"
         style={{width: '100%', height: '40%'}}
         source={require('../images/login1.png')}
       />
