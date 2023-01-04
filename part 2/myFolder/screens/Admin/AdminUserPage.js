@@ -4,8 +4,8 @@ import {ScrollView, Text, View, TouchableOpacity} from 'react-native';
 // firebase
 import database from '@react-native-firebase/database';
 
-function AdminUserPage() {
-  let [data, setData] = useState([{}, {}]);
+function AdminUserPage({navigation}) {
+  let [data, setData] = useState([]);
 
   useEffect(() => {
     database()
@@ -16,6 +16,10 @@ function AdminUserPage() {
         }
       });
   }, []);
+
+  const navigate = (name, e) => {
+    navigation.navigate(name, e);
+  };
 
   return (
     <View style={{backgroundColor: '#fff', width: '100%', height: '100%'}}>
@@ -39,6 +43,7 @@ function AdminUserPage() {
           data.map((value, index) => {
             return (
               <TouchableOpacity
+                onPress={() => navigate('SeeCustomerOrderLocation', value)}
                 key={index}
                 style={{
                   width: '100%',

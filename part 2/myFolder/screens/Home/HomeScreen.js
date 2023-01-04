@@ -1,7 +1,7 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 // component
-import HomePage from './HomePage';
+import DrawerNavigation1 from '../../navigation/DrawerNavigation1';
 import LastDetailScreen from './LastDetailScreen';
 import ProductDetail from './ProductDetail';
 import SuccessfullyMessageScreen from './SuccessfullMessageScreen';
@@ -11,8 +11,8 @@ function HomeScreen() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="HomePage"
-        component={HomePage}
+        name="DrawerNavigation1"
+        component={DrawerNavigation1}
         options={{headerShown: false}}
       />
       <Stack.Screen name="ProductDetail" component={ProductDetail} />

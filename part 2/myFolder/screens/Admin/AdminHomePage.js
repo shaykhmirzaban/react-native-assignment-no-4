@@ -60,12 +60,18 @@ function AdminHomePage({navigation}) {
           width: '100%',
           backgroundColor: '#F7C16B',
           height: 60,
-          justifyContent: 'center',
+          justifyContent: 'space-between',
           alignItems: 'center',
+          flexDirection: 'row',
+          paddingHorizontal: 20,
         }}>
         <Text style={{fontSize: 22, color: '#000', fontWeight: 'bold'}}>
           All Data
         </Text>
+
+        <TouchableOpacity onPress={() => navigation.openDrawer()}>
+          <Icon name="menu" color="#000" size={27} />
+        </TouchableOpacity>
       </View>
       {data && data.length > 0 ? (
         <ScrollView style={{marginBottom: 15, padding: 10}}>

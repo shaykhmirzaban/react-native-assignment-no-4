@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {
   Image,
   Text,
@@ -20,6 +20,19 @@ function LoginScreen({navigation}) {
   const navigate = name => {
     navigation.navigate(name);
   };
+
+  useEffect(() => {
+    auth().onAuthStateChanged(user => {
+      if (user) {
+        if (user.email === 'admin@admin.com') {
+          navigate('AdminScreen');
+        } else {
+          navigate('HomeScreen');
+        }
+      } else {
+      }
+    });
+  }, []);
 
   const loginFn = () => {
     setFlag(true);

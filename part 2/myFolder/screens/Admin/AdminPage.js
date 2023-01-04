@@ -69,6 +69,7 @@ function AdminPage() {
           height: 60,
           justifyContent: 'center',
           alignItems: 'center',
+          flexDirection: 'row',
         }}>
         <Text style={{fontSize: 22, color: '#000', fontWeight: 'bold'}}>
           Add Pizza

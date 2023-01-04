@@ -2,11 +2,10 @@ import {createDrawerNavigator} from '@react-navigation/drawer';
 
 // components
 import CustomDrawer from './CustomDrawer.js';
-// import AdminHomePage from '../screens/Admin/AdminHomePage';
-import StackNavigation1 from './StackNavigation1.js';
+import HomePage from '../screens/Home/HomePage.js';
 
 const Drawer = createDrawerNavigator();
-function DrawerNavigation({navigation, route}) {
+function DrawerNavigation1({navigation, route}) {
   const singoutUserFn = () => {
     navigation.navigate('LoginScreen');
   };
@@ -16,8 +15,8 @@ function DrawerNavigation({navigation, route}) {
         return <CustomDrawer singOutUserFn={singoutUserFn} {...props} />;
       }}>
       <Drawer.Screen
-        name="StackNavigation1"
-        component={StackNavigation1}
+        name="HomePage"
+        component={HomePage}
         options={{
           headerShown: false,
           drawerActiveBackgroundColor: '#fad7a0',
@@ -29,4 +28,4 @@ function DrawerNavigation({navigation, route}) {
   );
 }
 
-export default DrawerNavigation;
+export default DrawerNavigation1;

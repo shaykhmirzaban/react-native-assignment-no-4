@@ -11,21 +11,25 @@ import {
 
 // firebase
 import database from '@react-native-firebase/database';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 function HomePage({navigation}) {
   let [data, setData] = useState([]);
   let [item, setItem] = useState([]);
+  let [flag, setFlag] = useState(false);
 
   const navigate = (name, e) => {
     navigation.navigate(name, e);
   };
 
   useEffect(() => {
+    setFlag(true);
     database()
       .ref('Product')
       .on('value', snapshort => {
         if (snapshort.exists()) {
           setData(Object.values(snapshort.val()));
+          setFlag(false);
         }
       });
   }, []);
@@ -66,6 +70,11 @@ function HomePage({navigation}) {
           placeholderTextColor={'#1D1200'}
           onChangeText={e => searchFn(e)}
         />
+        <TouchableOpacity
+          onPress={() => navigation.openDrawer()}
+          style={{position: 'absolute', right: 15, top: 15}}>
+          <Icon name="menu" color="#000" size={27} />
+        </TouchableOpacity>
       </ImageBackground>
 
       <View style={{padding: 20, width: '100%', height: '78%'}}>

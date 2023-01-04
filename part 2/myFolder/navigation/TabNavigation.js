@@ -3,8 +3,8 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 // components
 import AdminPage from '../screens/Admin/AdminPage';
-import StackNavigation1 from '../navigation/StackNavigation1';
-import AdminUserPage from '../screens/Admin/AdminUserPage';
+import StackNavigation2 from './StackNavigation2';
+import DrawerNavigation1 from './DrawerNavigation';
 
 const Tab = createBottomTabNavigator();
 function TabNavigation() {
@@ -22,8 +22,8 @@ function TabNavigation() {
         tabBarShowLabel: false,
       }}>
       <Tab.Screen
-        name="StackNavigation1"
-        component={StackNavigation1}
+        name="DrawerNavigation1"
+        component={DrawerNavigation1}
         options={{
           tabBarIcon: color => {
             return <Icon name="home" size={25} color={'#1D1200'} />;
@@ -49,7 +49,7 @@ function TabNavigation() {
       />
       <Tab.Screen
         name="AdminUserPage"
-        component={AdminUserPage}
+        component={StackNavigation2}
         options={{
           tabBarIcon: color => {
             return <Icon name="list-alt" size={25} color={'#1D1200'} />;

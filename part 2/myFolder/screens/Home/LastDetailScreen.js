@@ -58,7 +58,7 @@ function LastDetailScreen({navigation, route}) {
 
       database()
         .ref(`CustomerOrder/${route.params.key}`)
-        .set(item)
+        .set({...item, id: route.params.key})
         .then(() => {
           ToastAndroid.show('Successfully Checkout', ToastAndroid.SHORT);
           navigate('SuccessfullyMessageScreen');
