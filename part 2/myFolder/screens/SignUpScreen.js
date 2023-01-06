@@ -72,107 +72,110 @@ function SignUpScreen({navigation}) {
   };
 
   return (
-    <View style={{width: '100%', height: '100%'}}>
+    <View style={{width: '100%', height: '100%', backgroundColor: '#fff'}}>
       <Image
         style={{width: '100%', height: '40%'}}
         source={require('../images/signup.png')}
       />
-      <View style={{height: '60%', padding: 20}}>
-        {/* heading */}
-        <View style={{paddingBottom: 15}}>
-          <Text style={{fontSize: 27, fontWeight: 'bold', color: '#1D1200'}}>
-            Sign Up
-          </Text>
-        </View>
-        <ScrollView
-          contentContainerStyle={{
-            justifyContent: 'space-between',
-          }}>
-          {/* login form */}
-          <View>
-            {/* form */}
-            <View>
-              <TextInput
-                style={{
-                  backgroundColor: '#fad7a0',
-                  color: '#1D1200',
-                  paddingHorizontal: 15,
-                  borderRadius: 5,
-                  fontSize: 17,
-                  height: 60,
-                  marginBottom: 10,
-                }}
-                placeholderTextColor="#1D1200"
-                placeholder="Name"
-                onChangeText={e => setData({...data, name: e})}
-              />
-              <TextInput
-                style={{
-                  backgroundColor: '#fad7a0',
-                  color: '#1D1200',
-                  paddingHorizontal: 15,
-                  borderRadius: 5,
-                  fontSize: 17,
-                  height: 60,
-                  marginBottom: 10,
-                }}
-                placeholderTextColor="#1D1200"
-                placeholder="Email"
-                onChangeText={e => setData({...data, email: e})}
-              />
-              <TextInput
-                style={{
-                  backgroundColor: '#fad7a0',
-                  color: '#1D1200',
-                  paddingHorizontal: 15,
-                  borderRadius: 5,
-                  fontSize: 17,
-                  height: 60,
-                }}
-                placeholderTextColor="#1D1200"
-                placeholder="Password"
-                onChangeText={e => setData({...data, password: e})}
-                secureTextEntry={true}
-              />
-            </View>
-            {/* extrat part */}
-            <View
-              style={{
-                flexDirection: 'row',
-                flexWrap: 'wrap',
-                marginVertical: 10,
-              }}>
-              <Text style={{fontSize: 16, color: '#000000'}}>
-                If you have an account?{' '}
-              </Text>
-              <Text
-                onPress={() => navigate('LoginScreen')}
-                style={{fontSize: 16, color: '#1D1200', fontWeight: 'bold'}}>
-                Login
-              </Text>
-            </View>
+      <ScrollView
+        contentContainerStyle={{
+          flex: 1,
+          paddingHorizontal: 20,
+          paddingVertical: 15,
+          justifyContent: 'space-between',
+        }}>
+        {/* SignUP form */}
+        <View>
+          {/* heading */}
+          <View style={{paddingBottom: 15}}>
+            <Text style={{fontSize: 27, fontWeight: 'bold', color: '#1D1200'}}>
+              Sign Up
+            </Text>
           </View>
-          {/* button */}
-          <TouchableOpacity
-            onPress={signUpFn}
+          {/* form */}
+          <View>
+            <TextInput
+              style={{
+                backgroundColor: '#fad7a0',
+                color: '#1D1200',
+                paddingHorizontal: 15,
+                borderRadius: 5,
+                fontSize: 17,
+                height: 60,
+                marginBottom: 10,
+              }}
+              placeholderTextColor="#1D1200"
+              placeholder="Name"
+              onChangeText={e => setData({...data, name: e})}
+            />
+            <TextInput
+              style={{
+                backgroundColor: '#fad7a0',
+                color: '#1D1200',
+                paddingHorizontal: 15,
+                borderRadius: 5,
+                fontSize: 17,
+                height: 60,
+                marginBottom: 10,
+              }}
+              placeholderTextColor="#1D1200"
+              placeholder="Email"
+              onChangeText={e => setData({...data, email: e})}
+              keyboardType="email-address"
+            />
+            <TextInput
+              style={{
+                backgroundColor: '#fad7a0',
+                color: '#1D1200',
+                paddingHorizontal: 15,
+                borderRadius: 5,
+                fontSize: 17,
+                height: 60,
+              }}
+              placeholderTextColor="#1D1200"
+              placeholder="Password"
+              onChangeText={e => setData({...data, password: e})}
+              secureTextEntry={true}
+            />
+          </View>
+          {/* extrat part */}
+          <View
             style={{
-              width: '100%',
-              height: 60,
-              backgroundColor: '#F7C16B',
-              borderRadius: 10,
-              justifyContent: 'center',
-              alignItems: 'center',
+              flexDirection: 'row',
+              flexWrap: 'wrap',
+              marginVertical: 10,
             }}>
-            {flag ? (
-              <ActivityIndicator color={'#fff'} size="small" animating={flag} />
-            ) : (
-              <Text style={{fontSize: 20, fontWeight: 'bold', color: '#fff'}}>
-                Sign Up
-              </Text>
-            )}
-          </TouchableOpacity>
-        </ScrollView>
-      </View>
+            <Text style={{fontSize: 16, color: '#000000'}}>
+              If you have an account?{' '}
+            </Text>
+            <Text
+              onPress={() => navigate('LoginScreen')}
+              style={{fontSize: 16, color: '#1D1200', fontWeight: 'bold'}}>
+              Login
+            </Text>
+          </View>
+        </View>
+
+        {/* button */}
+        <TouchableOpacity
+          onPress={signUpFn}
+          style={{
+            width: '100%',
+            height: 60,
+            backgroundColor: '#F7C16B',
+            borderRadius: 10,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          {flag ? (
+            <ActivityIndicator color={'#fff'} size="small" animating={flag} />
+          ) : (
+            <Text style={{fontSize: 20, fontWeight: 'bold', color: '#fff'}}>
+              Sign Up
+            </Text>
+          )}
+        </TouchableOpacity>
+      </ScrollView>
     </View>
   );
 }

@@ -19,48 +19,42 @@ function ProductDetail({navigation, route}) {
         justifyContent: 'flex-start',
         alignItems: 'center',
         marginTop: 10,
+        backgroundColor: '#fff',
+        paddingBottom: 20,
       }}>
       <Image
-        style={{width: '95%', height: 300, borderRadius: 10}}
+        style={{width: '95%', borderRadius: 10, marginBottom: 15}}
         source={require('../../images/pizza.webp')}
       />
       {/* detail */}
-      <View
+      <ScrollView
         style={{
           width: '95%',
-          marginVertical: 10,
-          marginBottom: 15,
-          height: '30%',
-          justifyContent: 'space-between',
-          alignItems: 'center',
+          backgroundColor: '#eee',
+          borderRadius: 10,
+        }}
+        contentContainerStyle={{
+          padding: 20,
         }}>
-        <ScrollView
+        <View
           style={{
             width: '100%',
             marginVertical: 10,
-          }}
-          contentContainerStyle={{
-            backgroundColor: '#FCF1DF',
-            padding: 10,
-            borderRadius: 10,
-            minHeight: 100,
-            justifyContent: 'space-between',
-          }}
-          estedScrollEnabled={true}>
-          <View style={{paddingBottom: 15}}>
-            <Text style={{fontSize: 18, color: '#1D1200', fontWeight: 'bold'}}>
+          }}>
+          <View style={{paddingBottom: 15, width: '100%'}}>
+            <Text style={{fontSize: 25, color: '#1D1200', fontWeight: 'bold'}}>
               {data && data.name}
             </Text>
-            <Text style={{fontSize: 14, color: '#000'}}>
+            <Text style={{fontSize: 18, color: '#000'}}>
               {data && data.description}
             </Text>
           </View>
           <View>
-            <Text style={{fontSize: 16, fontWeight: 'bold', color: '#1D1200'}}>
+            <Text style={{fontSize: 22, fontWeight: 'bold', color: '#1D1200'}}>
               Rs {data && data.price}
             </Text>
           </View>
-        </ScrollView>
+        </View>
         {/* button */}
         <TouchableOpacity
           onPress={() => navigate('Information', data)}
@@ -76,7 +70,7 @@ function ProductDetail({navigation, route}) {
             Buy Now
           </Text>
         </TouchableOpacity>
-      </View>
+      </ScrollView>
     </View>
   );
 }

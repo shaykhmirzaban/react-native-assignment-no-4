@@ -1,4 +1,4 @@
-package com.react_native_practice.newarchitecture;
+package com.Pizza_lylo.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.react_native_practice.BuildConfig;
-import com.react_native_practice.newarchitecture.components.MainComponentsRegistry;
-import com.react_native_practice.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.Pizza_lylo.BuildConfig;
+import com.Pizza_lylo.newarchitecture.components.MainComponentsRegistry;
+import com.Pizza_lylo.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 

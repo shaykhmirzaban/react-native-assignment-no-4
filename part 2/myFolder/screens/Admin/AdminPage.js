@@ -60,7 +60,7 @@ function AdminPage() {
   };
 
   return (
-    <View>
+    <View style={{backgroundColor: '#fff'}}>
       {/* add pizza */}
       <View
         style={{

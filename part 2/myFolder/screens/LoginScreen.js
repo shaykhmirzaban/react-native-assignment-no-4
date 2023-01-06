@@ -67,7 +67,7 @@ function LoginScreen({navigation}) {
       });
   };
   return (
-    <View style={{width: '100%', height: '100%'}}>
+    <View style={{width: '100%', height: '100%', backgroundColor: '#fff'}}>
       <Image
         resizeMode="cover"
         style={{width: '100%', height: '40%'}}
@@ -98,6 +98,7 @@ function LoginScreen({navigation}) {
               placeholderTextColor="#1D1200"
               placeholder="Email"
               onChangeText={e => setData({...data, email: e})}
+              keyboardType="email-address"
             />
             <TextInput
               style={{

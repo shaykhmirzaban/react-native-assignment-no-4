@@ -146,12 +146,17 @@ android {
     defaultConfig {
         // vectorDrawables.useSupportLibrary = true
         // targetSdkVersion 27
-        applicationId "com.react_native_practice"
+        applicationId "com.Pizza_lylo"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
+        buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED",
+
+        // minSdkVersion 21
+        // multiDexEnabled true
+
+        isNewArchitectureEnabled().toString()
 
         if (isNewArchitectureEnabled()) {
             // We configure the CMake build only if you decide to opt-in for the New Architecture.
@@ -168,6 +173,16 @@ android {
                 ndk {
                     abiFilters (*reactNativeArchitectures())
                 }
+            }
+        }
+    }
+    signingConfigs {
+        release {
+            if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
+                storeFile file(MYAPP_UPLOAD_STORE_FILE)
+                storePassword MYAPP_UPLOAD_STORE_PASSWORD
+                keyAlias MYAPP_UPLOAD_KEY_ALIAS
+                keyPassword MYAPP_UPLOAD_KEY_PASSWORD
             }
         }
     }
@@ -239,6 +254,7 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.release
         }
     }
 

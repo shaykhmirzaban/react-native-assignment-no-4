@@ -1,4 +1,4 @@
-package com.react_native_practice;
+package com.Pizza_lylo;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -18,7 +18,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "React_Native_Practice";
+    return "Pizza_lylo";
   }
 
   /**

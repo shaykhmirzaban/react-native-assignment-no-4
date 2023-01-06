@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   View,
   TextInput,
+  StatusBar,
 } from 'react-native';
 
 // firebase
@@ -47,21 +48,22 @@ function HomePage({navigation}) {
 
   return (
     <View style={{width: '100%', height: '100%', backgroundColor: '#fff'}}>
+      <StatusBar backgroundColor={'#f7c16b'} barStyle={'dark-content'} />
       <ImageBackground
-        blurRadius={50}
+        blurRadius={100}
         style={{
           width: '100%',
           height: 200,
           justifyContent: 'center',
           alignItems: 'center',
         }}
-        source={require('../../images/home.png')}>
+        source={require('../../images/image.png')}>
         <TextInput
           placeholder="Enter here."
           style={{
             width: '90%',
             height: 65,
-            backgroundColor: '#fad7a0',
+            backgroundColor: '#fde8c6',
             borderRadius: 10,
             paddingHorizontal: 15,
             fontSize: 16,
@@ -77,7 +79,7 @@ function HomePage({navigation}) {
         </TouchableOpacity>
       </ImageBackground>
 
-      <View style={{padding: 20, width: '100%', height: '78%'}}>
+      <View style={{padding: 20, width: '100%', flex: 1}}>
         {/* heading */}
         <View style={{paddingBottom: 10}}>
           <Text style={{fontSize: 22, fontWeight: 'bold', color: '#1D1200'}}>
@@ -86,7 +88,7 @@ function HomePage({navigation}) {
         </View>
 
         {item && item.length > 0 ? (
-          <ScrollView style={{marginBottom: 15}}>
+          <ScrollView>
             {item &&
               item.length > 0 &&
               item.map((value, index) => {
@@ -140,7 +142,7 @@ function HomePage({navigation}) {
               })}
           </ScrollView>
         ) : (
-          <ScrollView style={{marginBottom: 15}}>
+          <ScrollView>
             {data &&
               data.length > 0 &&
               data.map((value, index) => {

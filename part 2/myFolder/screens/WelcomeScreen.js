@@ -15,10 +15,11 @@ function WelcomeScreen({navigation}) {
       />
       <View
         style={{
-          padding: 15,
+          paddingHorizontal: 15,
           justifyContent: 'space-between',
           height: '40%',
           paddingHorizontal: 20,
+          paddingBottom: 15,
         }}>
         {/* text */}
         <View>

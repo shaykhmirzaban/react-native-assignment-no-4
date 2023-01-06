@@ -15,7 +15,11 @@ function HomeScreen() {
         component={DrawerNavigation1}
         options={{headerShown: false}}
       />
-      <Stack.Screen name="ProductDetail" component={ProductDetail} />
+      <Stack.Screen
+        name="ProductDetail"
+        component={ProductDetail}
+        options={{headerTitle: 'Product Detail'}}
+      />
       <Stack.Screen name="Information" component={LastDetailScreen} />
       <Stack.Screen
         name="SuccessfullyMessageScreen"

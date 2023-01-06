@@ -1,4 +1,4 @@
-package com.react_native_practice.newarchitecture.components;
+package com.Pizza_lylo.newarchitecture.components;
 
 import com.facebook.jni.HybridData;
 import com.facebook.proguard.annotations.DoNotStrip;

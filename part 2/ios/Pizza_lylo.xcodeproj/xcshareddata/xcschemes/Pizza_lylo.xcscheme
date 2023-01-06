@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "React_Native_Practice.app"
-               BlueprintName = "React_Native_Practice"
-               ReferencedContainer = "container:React_Native_Practice.xcodeproj">
+               BuildableName = "Pizza_lylo.app"
+               BlueprintName = "Pizza_lylo"
+               ReferencedContainer = "container:Pizza_lylo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "React_Native_PracticeTests.xctest"
-               BlueprintName = "React_Native_PracticeTests"
-               ReferencedContainer = "container:React_Native_Practice.xcodeproj">
+               BuildableName = "Pizza_lyloTests.xctest"
+               BlueprintName = "Pizza_lyloTests"
+               ReferencedContainer = "container:Pizza_lylo.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "React_Native_Practice.app"
-            BlueprintName = "React_Native_Practice"
-            ReferencedContainer = "container:React_Native_Practice.xcodeproj">
+            BuildableName = "Pizza_lylo.app"
+            BlueprintName = "Pizza_lylo"
+            ReferencedContainer = "container:Pizza_lylo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "React_Native_Practice.app"
-            BlueprintName = "React_Native_Practice"
-            ReferencedContainer = "container:React_Native_Practice.xcodeproj">
+            BuildableName = "Pizza_lylo.app"
+            BlueprintName = "Pizza_lylo"
+            ReferencedContainer = "container:Pizza_lylo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

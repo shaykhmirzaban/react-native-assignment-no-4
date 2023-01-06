@@ -13,7 +13,11 @@ function StackNavigation1() {
         component={AdminHomePage}
         options={{headerShown: false}}
       />
-      <Stack.Screen name="UpdateDataScreen" component={UpdateDataScreen} />
+      <Stack.Screen
+        name="UpdateDataScreen"
+        component={UpdateDataScreen}
+        options={{headerTitle: 'Update Data Screen'}}
+      />
     </Stack.Navigator>
   );
 }

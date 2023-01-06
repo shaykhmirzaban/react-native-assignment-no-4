@@ -93,20 +93,20 @@ function AdminHomePage({navigation}) {
                   <View>
                     <Text
                       style={{
-                        fontSize: 18,
+                        fontSize: 22,
                         color: '#1D1200',
                         fontWeight: 'bold',
                       }}>
                       {value.name}
                     </Text>
-                    <Text style={{fontSize: 14, color: '#000'}}>
+                    <Text style={{fontSize: 18, color: '#333'}}>
                       {value.description}
                     </Text>
                   </View>
                   <View>
                     <Text
                       style={{
-                        fontSize: 16,
+                        fontSize: 20,
                         fontWeight: 'bold',
                         color: '#1D1200',
                       }}>
@@ -123,17 +123,17 @@ function AdminHomePage({navigation}) {
                   <TouchableOpacity
                     onPress={() => deleteFn(value.key)}
                     style={{
-                      paddingTop: 10,
                       backgroundColor: '#fff',
                       borderRadius: 20,
                       justifyContent: 'center',
                       alignItems: 'center',
-                      marginTop: 5,
+                      padding: 5,
+                      marginBottom: 15,
                     }}>
                     <Icon name="delete" size={25} color="red" />
                   </TouchableOpacity>
                   <Image
-                    style={{width: 85, height: 85, borderRadius: 10}}
+                    style={{width: 85, height: 85, borderRadius: 5}}
                     source={require('../../images/pizza.webp')}
                   />
                 </View>

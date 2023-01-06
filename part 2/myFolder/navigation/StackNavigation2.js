@@ -16,6 +16,7 @@ function StackNavigation2() {
       <Stack.Screen
         name="SeeCustomerOrderLocation"
         component={SeeCustomerOrderLocation}
+        options={{headerTitle: 'Order Detail'}}
       />
     </Stack.Navigator>
   );

@@ -5,6 +5,7 @@ import {
   ToastAndroid,
   View,
   TouchableOpacity,
+  ScrollView,
 } from 'react-native';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -29,7 +30,7 @@ function SeeCustomerOrderLocation({navigation, route}) {
   };
 
   return (
-    <View
+    <ScrollView
       style={{
         width: '100%',
         height: '100%',
@@ -112,7 +113,7 @@ function SeeCustomerOrderLocation({navigation, route}) {
           </TouchableOpacity>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 

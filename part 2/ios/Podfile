@@ -4,7 +4,7 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 platform :ios, '12.4'
 install! 'cocoapods', :deterministic_uuids => false
 
-target 'React_Native_Practice' do
+target 'Pizza_lylo' do
   config = use_native_modules!
 
   # Flags change depending on the env values.
@@ -26,7 +26,7 @@ target 'React_Native_Practice' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  target 'React_Native_PracticeTests' do
+  target 'Pizza_lyloTests' do
     inherit! :complete
     # Pods for testing
   end

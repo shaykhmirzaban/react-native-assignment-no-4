@@ -15,7 +15,6 @@ function UpdateDataScreen({navigation, route}) {
 
   useEffect(() => {
     setData(route.params);
-    console.log(data);
   }, []);
 
   const updateData = () => {

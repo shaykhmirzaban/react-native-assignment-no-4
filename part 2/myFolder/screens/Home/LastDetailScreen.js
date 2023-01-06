@@ -102,7 +102,7 @@ function LastDetailScreen({navigation, route}) {
           marginBottom: 10,
         }}
         placeholderTextColor="#1D1200"
-        keyboardType="name-phone-pad"
+        keyboardType="phone-pad"
         onChangeText={e => setItem({...item, number: e})}
       />
       <TextInput
@@ -159,7 +159,7 @@ function LastDetailScreen({navigation, route}) {
           <Text
             style={{
               fontWeight: 'bold',
-              fontSize: 20,
+              fontSize: 22,
               color: '#333',
               paddingBottom: 5,
             }}>
