@@ -1,24 +1,45 @@
 import {useEffect, useState} from 'react';
-import {ScrollView, Text, View, TouchableOpacity} from 'react-native';
+import {
+  ScrollView,
+  Text,
+  View,
+  TouchableOpacity,
+  RefreshControl,
+} from 'react-native';
 
 // firebase
 import database from '@react-native-firebase/database';
 
 function AdminUserPage({navigation}) {
   let [data, setData] = useState([]);
+  let [refresh, setRefresh] = useState(false);
 
-  useEffect(() => {
+  const fetchData = () => {
     database()
       .ref('CustomerOrder')
       .on('value', snapshort => {
         if (snapshort.exists()) {
           setData(Object.values(snapshort.val()));
+        } else {
+          setData([]);
         }
       });
+  };
+
+  useEffect(() => {
+    fetchData();
   }, []);
 
   const navigate = (name, e) => {
     navigation.navigate(name, e);
+  };
+
+  const refreshingFn = () => {
+    setRefresh(true);
+    setTimeout(() => {
+      fetchData();
+      setRefresh(false);
+    }, 1000);
   };
 
   return (
@@ -33,12 +54,16 @@ function AdminUserPage({navigation}) {
           alignItems: 'center',
         }}>
         <Text style={{fontSize: 22, color: '#000', fontWeight: 'bold'}}>
-          All Customer Order
+          Customer Order
         </Text>
       </View>
 
       {/* order list */}
-      <ScrollView style={{padding: 15}}>
+      <ScrollView
+        style={{padding: 15}}
+        refreshControl={
+          <RefreshControl refreshing={refresh} onRefresh={refreshingFn} />
+        }>
         {data && data.length > 0 ? (
           data.map((value, index) => {
             return (

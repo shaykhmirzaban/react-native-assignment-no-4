@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "Pizza_lylo.app"
-               BlueprintName = "Pizza_lylo"
-               ReferencedContainer = "container:Pizza_lylo.xcodeproj">
+               BuildableName = "Pizza Lylo.app"
+               BlueprintName = "Pizza Lylo"
+               ReferencedContainer = "container:Pizza Lylo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "Pizza_lyloTests.xctest"
-               BlueprintName = "Pizza_lyloTests"
-               ReferencedContainer = "container:Pizza_lylo.xcodeproj">
+               BuildableName = "Pizza LyloTests.xctest"
+               BlueprintName = "Pizza LyloTests"
+               ReferencedContainer = "container:Pizza Lylo.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Pizza_lylo.app"
-            BlueprintName = "Pizza_lylo"
-            ReferencedContainer = "container:Pizza_lylo.xcodeproj">
+            BuildableName = "Pizza Lylo.app"
+            BlueprintName = "Pizza Lylo"
+            ReferencedContainer = "container:Pizza Lylo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "Pizza_lylo.app"
-            BlueprintName = "Pizza_lylo"
-            ReferencedContainer = "container:Pizza_lylo.xcodeproj">
+            BuildableName = "Pizza Lylo.app"
+            BlueprintName = "Pizza Lylo"
+            ReferencedContainer = "container:Pizza Lylo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

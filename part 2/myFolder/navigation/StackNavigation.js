@@ -7,12 +7,15 @@ import WelcomeScreen from '../screens/WelcomeScreen';
 import LoginScreen from '../screens/LoginScreen';
 import SignUpScreen from '../screens/SignUpScreen';
 import TabNavigation from './TabNavigation';
-import HomeScreen from '../screens/Home/HomeScreen';
+import HomeScreen from './HomeStackNavigation';
 
 const Stack = createNativeStackNavigator();
 function StackNavigation() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        animation: 'slide_from_right',
+      }}>
       <Stack.Screen
         name="WelcomeScreen"
         component={WelcomeScreen}

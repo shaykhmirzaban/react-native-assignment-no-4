@@ -1,5 +1,6 @@
 import {useState} from 'react';
 import {
+  Alert,
   ScrollView,
   StyleSheet,
   Text,
@@ -8,7 +9,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
+import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
 
 // FIREBASE
@@ -29,24 +30,23 @@ function LastDetailScreen({navigation, route}) {
     navigation.navigate(name);
   };
 
-  Geolocation.getCurrentPosition(
-    //Will give you the current location
-    position => {
-      //getting the Longitude from the location json
-      const currentLongitude = JSON.stringify(position.coords.longitude);
+  // Geolocation.getCurrentPosition(
+  //   //Will give you the current location
+  //   position => {
+  //     //getting the Longitude from the location json
+  //     const currentLongitude = JSON.stringify(position.coords.longitude);
 
-      //getting the Latitude from the location json
-      const currentLatitude = JSON.stringify(position.coords.latitude);
-      setLongitude(currentLongitude);
-      setLatitude(currentLatitude);
-    },
-    error => alert(error.message),
-    {
-      enableHighAccuracy: true,
-      timeout: 20000,
-      maximumAge: 1000,
-    },
-  );
+  //     //getting the Latitude from the location json
+  //     const currentLatitude = JSON.stringify(position.coords.latitude);
+  //     setLongitude(currentLongitude);
+  //     setLatitude(currentLatitude);
+  //   },
+  //   {
+  //     enableHighAccuracy: true,
+  //     timeout: 20000,
+  //     maximumAge: 1000,
+  //   },
+  // );
 
   const checkOutFn = () => {
     if (item.name !== '' && item.number !== '' && item.address !== '') {
@@ -56,9 +56,11 @@ function LastDetailScreen({navigation, route}) {
       let data = new Date();
       item.date = String(data);
 
+      item.key = database().ref('CustomerOrder/').push().key;
+
       database()
-        .ref(`CustomerOrder/${route.params.key}`)
-        .set({...item, id: route.params.key})
+        .ref(`CustomerOrder/${item.key}`)
+        .set(item)
         .then(() => {
           ToastAndroid.show('Successfully Checkout', ToastAndroid.SHORT);
           navigate('SuccessfullyMessageScreen');
@@ -113,12 +115,11 @@ function LastDetailScreen({navigation, route}) {
           paddingHorizontal: 15,
           borderRadius: 5,
           fontSize: 17,
-          height: 60,
           marginBottom: 10,
         }}
         placeholderTextColor="#1D1200"
-        keyboardType="default"
-        numberOfLines={10}
+        multiline={true}
+        numberOfLines={4}
         onChangeText={e => setItem({...item, address: e})}
       />
 
@@ -158,26 +159,50 @@ function LastDetailScreen({navigation, route}) {
         <View>
           <Text
             style={{
-              fontWeight: 'bold',
-              fontSize: 22,
+              fontSize: 18,
               color: '#333',
-              paddingBottom: 5,
+              paddingVertical: 5,
+              fontWeight: 'bold',
             }}>
-            Total
+            Product name:{' '}
+            <Text style={{color: '#000', fontWeight: 'normal'}}>
+              {data && data.name}
+            </Text>
           </Text>
-        </View>
-        <View>
-          <Text style={{fontSize: 18, color: '#333', paddingVertical: 5}}>
-            Product name: {data && data.name}
+          <Text
+            style={{
+              fontSize: 18,
+              color: '#333',
+              paddingVertical: 5,
+              fontWeight: 'bold',
+            }}>
+            Product Price:{' '}
+            <Text style={{color: '#000', fontWeight: 'normal'}}>
+              RS {data && data.price}
+            </Text>
           </Text>
-          <Text style={{fontSize: 18, color: '#333', paddingVertical: 5}}>
-            Product Price: Rs {data && data.price}
+          <Text
+            style={{
+              fontSize: 18,
+              color: '#333',
+              paddingVertical: 5,
+              fontWeight: 'bold',
+            }}>
+            Shipping charges:
+            <Text style={{color: '#000', fontWeight: 'normal'}}> RS 100</Text>
           </Text>
-          <Text style={{fontSize: 18, color: '#333', paddingVertical: 5}}>
-            Shipping charges: Rs 100
-          </Text>
-          <Text style={{fontSize: 18, color: '#333', paddingVertical: 5}}>
-            Total: Rs {data && Number(data.price) + 100}
+          <Text
+            style={{
+              fontSize: 18,
+              color: '#333',
+              paddingVertical: 5,
+              fontWeight: 'bold',
+            }}>
+            Total:
+            <Text style={{color: '#000', fontWeight: 'normal'}}>
+              {' '}
+              RS {data && Number(data.price) + 100}
+            </Text>
           </Text>
         </View>
       </View>

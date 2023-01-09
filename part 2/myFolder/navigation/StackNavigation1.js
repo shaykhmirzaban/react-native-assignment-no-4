@@ -7,7 +7,7 @@ import UpdateDataScreen from '../screens/Admin/UpdateDataScreen';
 const Stack = createNativeStackNavigator();
 function StackNavigation1() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{animation: 'slide_from_right'}}>
       <Stack.Screen
         name="AdminHomePage"
         component={AdminHomePage}

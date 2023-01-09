@@ -11,6 +11,7 @@ function ProductDetail({navigation, route}) {
   const navigate = (name, e) => {
     navigation.navigate(name, e);
   };
+
   return (
     <View
       style={{
@@ -23,8 +24,9 @@ function ProductDetail({navigation, route}) {
         paddingBottom: 20,
       }}>
       <Image
-        style={{width: '95%', borderRadius: 10, marginBottom: 15}}
-        source={require('../../images/pizza.webp')}
+        resizeMode="cover"
+        style={{width: '95%', height: 250, borderRadius: 10, marginBottom: 15}}
+        source={{uri: data && data.image}}
       />
       {/* detail */}
       <ScrollView
@@ -35,17 +37,19 @@ function ProductDetail({navigation, route}) {
         }}
         contentContainerStyle={{
           padding: 20,
+          // flex: 1,
+          justifyContent: 'space-between',
         }}>
         <View
           style={{
             width: '100%',
             marginVertical: 10,
           }}>
-          <View style={{paddingBottom: 15, width: '100%'}}>
+          <View style={{width: '100%'}}>
             <Text style={{fontSize: 25, color: '#1D1200', fontWeight: 'bold'}}>
               {data && data.name}
             </Text>
-            <Text style={{fontSize: 18, color: '#000'}}>
+            <Text style={{fontSize: 18, color: '#000', paddingVertical: 10}}>
               {data && data.description}
             </Text>
           </View>
@@ -65,6 +69,7 @@ function ProductDetail({navigation, route}) {
             borderRadius: 10,
             justifyContent: 'center',
             alignItems: 'center',
+            marginTop: 10,
           }}>
           <Text style={{fontSize: 20, fontWeight: 'bold', color: '#fff'}}>
             Buy Now

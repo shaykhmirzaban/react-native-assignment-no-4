@@ -23,10 +23,24 @@ function WelcomeScreen({navigation}) {
         }}>
         {/* text */}
         <View>
-          <Text style={{fontSize: 22, fontWeight: 'bold', color: '#1D1200'}}>
+          <Text
+            style={{
+              fontSize: 25,
+              fontWeight: 'bold',
+              color: '#1D1200',
+              textAlign: 'center',
+              paddingVertical: 5,
+            }}>
             WELCOME!
           </Text>
-          <Text style={{fontSize: 17, color: '#2F2F2F', paddingVertical: 5}}>
+          <Text
+            style={{
+              fontSize: 17,
+              color: '#2F2F2F',
+              paddingVertical: 5,
+              textAlign: 'center',
+              lineHeight: 25,
+            }}>
             Thanks for joining us. We’re looking forward to serving you great
             pizza. Scroll to find out what else you’ll get with our mobile app.{' '}
           </Text>

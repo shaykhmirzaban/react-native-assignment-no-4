@@ -14,11 +14,11 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import database from '@react-native-firebase/database';
 
 function SeeCustomerOrderLocation({navigation, route}) {
-  let [data, setData] = useState(route.params && route.params);
+  let [data, setData] = useState(route.params);
 
   const deleteFn = () => {
     database()
-      .ref(`CustomerOrder/${data.id}`)
+      .ref(`CustomerOrder/${data.key}`)
       .remove()
       .then(() => {
         ToastAndroid.show('Successfully deleted', ToastAndroid.SHORT);
@@ -48,7 +48,6 @@ function SeeCustomerOrderLocation({navigation, route}) {
             longitudeDelta: 0.0121,
           }}></MapView>
       </View>
-
       <View
         style={{
           width: '100%',
@@ -57,31 +56,42 @@ function SeeCustomerOrderLocation({navigation, route}) {
           marginVertical: 10,
           borderRadius: 10,
         }}>
+        <View>
+          <Text
+            style={{
+              fontSize: 22,
+              fontWeight: 'bold',
+              color: '#000',
+              paddingBottom: 10,
+            }}>
+            Information
+          </Text>
+        </View>
         <View style={styles.divStyle}>
           <Text style={styles.divTextStyle}>Name: </Text>
-          <Text style={styles.divTextStyle}>{data.name}</Text>
+          <Text style={styles.textStyle}>{data && data.name}</Text>
         </View>
         <View style={styles.divStyle}>
           <Text style={styles.divTextStyle}>Date: </Text>
-          <Text style={styles.divTextStyle}>{data.date}</Text>
+          <Text style={styles.textStyle}>{data && data.date}</Text>
         </View>
         <View style={styles.divStyle}>
           <Text style={styles.divTextStyle}>Number: </Text>
-          <Text style={styles.divTextStyle}>{data.number}</Text>
+          <Text style={styles.textStyle}>{data && data.number}</Text>
         </View>
         <View style={styles.divStyle}>
           <Text style={styles.divTextStyle}>Address: </Text>
-          <Text style={styles.divTextStyle}>{data.address}</Text>
+          <Text style={styles.textStyle}>{data && data.address}</Text>
         </View>
         <View style={styles.divStyle}>
           <Text style={styles.divTextStyle}>Total Price: </Text>
-          <Text style={styles.divTextStyle}>{data.totalPrice}</Text>
+          <Text style={styles.textStyle}>{data && data.totalPrice}</Text>
         </View>
 
         <View>
           <Text
             style={{
-              fontSize: 22,
+              fontSize: 20,
               fontWeight: 'bold',
               color: '#333',
               marginBottom: 10,
@@ -137,6 +147,11 @@ const styles = StyleSheet.create({
   divTextStyle: {
     fontSize: 16,
     color: '#333',
+    fontWeight: 'bold',
+  },
+  textStyle: {
+    color: '#000',
+    fontSize: 16,
   },
 });
 

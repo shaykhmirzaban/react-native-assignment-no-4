@@ -1,6 +1,8 @@
 import {useEffect, useState} from 'react';
 import {
+  ActivityIndicator,
   Image,
+  RefreshControl,
   ScrollView,
   StatusBar,
   Text,
@@ -16,19 +18,46 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 function AdminHomePage({navigation}) {
   let [data, setData] = useState([]);
   let [flag, setFlag] = useState('');
+  let [boolean, setBoolean] = useState(false);
+  let [loading, setLoading] = useState('');
 
   // fetch data
   useEffect(() => {
+    setLoading('Loading');
     database()
       .ref('Product')
       .on('value', snapshort => {
         if (snapshort.exists()) {
           setData(Object.values(snapshort.val()));
           setFlag('');
+          setLoading('');
         } else {
-          setFlag('There is no data');
+          setFlag('Empty');
+          setLoading('');
+          setData([]);
         }
       });
+
+    // const fetchData = dataIsExist => {
+    //   setLoading('Loading');
+    //   return new Promise((res, rej) => {
+    //     if (dataIsExist) {
+    //       res('succefully fetch data');
+    //       setLoading('');
+    //       setFlag('');
+    //     } else {
+    //       rej('error');
+    //       setLoading('');
+    //       setFlag('Empty');
+    //     }
+    //   });
+    // };
+
+    // fetchData()
+    //   .then(e => console.log(e))
+    //   .catch(e => {
+    //     console.log(e);
+    //   });
   }, []);
 
   const navigate = (name, e) => {
@@ -47,6 +76,11 @@ function AdminHomePage({navigation}) {
       });
   };
 
+  const refreshingFn = () => {
+    setBoolean(true);
+    setTimeout(() => setBoolean(false), 1000);
+  };
+
   return (
     <View
       style={{
@@ -55,6 +89,7 @@ function AdminHomePage({navigation}) {
         backgroundColor: '#fff',
       }}>
       <StatusBar backgroundColor={'#F7C16B'} barStyle={'dark-content'} />
+
       <View
         style={{
           width: '100%',
@@ -73,76 +108,109 @@ function AdminHomePage({navigation}) {
           <Icon name="menu" color="#000" size={27} />
         </TouchableOpacity>
       </View>
-      {data && data.length > 0 ? (
-        <ScrollView style={{marginBottom: 15, padding: 10}}>
+
+      {loading ? (
+        <View style={{marginVertical: 10}}>
+          <ActivityIndicator
+            size={'large'}
+            color={'#000'}
+            animating={loading === '' ? false : true}
+          />
+        </View>
+      ) : data && data.length > 0 ? (
+        <ScrollView
+          style={{marginBottom: 15, padding: 10}}
+          contentContainerStyle={{
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+          }}
+          refreshControl={
+            <RefreshControl refreshing={boolean} onRefresh={refreshingFn} />
+          }>
           {data.map((value, index) => {
             return (
               <TouchableOpacity
                 key={index}
                 onPress={() => navigate('UpdateDataScreen', value)}
                 style={{
-                  padding: 15,
+                  width: 155,
+                  padding: 10,
                   backgroundColor: '#FCF1DF',
                   borderRadius: 10,
-                  justifyContent: 'space-between',
-                  flexDirection: 'row',
                   marginVertical: 10,
                 }}>
-                {/* left side */}
-                <View style={{justifyContent: 'space-between'}}>
-                  <View>
-                    <Text
-                      style={{
-                        fontSize: 22,
-                        color: '#1D1200',
-                        fontWeight: 'bold',
-                      }}>
-                      {value.name}
-                    </Text>
-                    <Text style={{fontSize: 18, color: '#333'}}>
-                      {value.description}
-                    </Text>
-                  </View>
-                  <View>
-                    <Text
-                      style={{
-                        fontSize: 20,
-                        fontWeight: 'bold',
-                        color: '#1D1200',
-                      }}>
-                      Rs {value.price}
-                    </Text>
-                  </View>
-                </View>
                 {/* right side */}
-                <View
-                  style={{
-                    justifyContent: 'space-between',
-                    alignItems: 'flex-end',
-                  }}>
-                  <TouchableOpacity
-                    onPress={() => deleteFn(value.key)}
-                    style={{
-                      backgroundColor: '#fff',
-                      borderRadius: 20,
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      padding: 5,
-                      marginBottom: 15,
-                    }}>
-                    <Icon name="delete" size={25} color="red" />
-                  </TouchableOpacity>
+                <View>
                   <Image
-                    style={{width: 85, height: 85, borderRadius: 5}}
-                    source={require('../../images/pizza.webp')}
+                    resizeMode="cover"
+                    style={{
+                      width: 135,
+                      height: 135,
+                      borderRadius: 10,
+                    }}
+                    source={{uri: value.image}}
                   />
                 </View>
+
+                {/* left side */}
+                <View>
+                  <Text
+                    style={{
+                      fontSize: 16,
+                      color: '#1D1200',
+                      fontWeight: 'bold',
+                      paddingVertical: 10,
+                    }}>
+                    {value.name}
+                  </Text>
+                  <Text style={{fontSize: 16, color: '#000'}}>
+                    {value.description && value.description.length > 30
+                      ? `${value.description.slice(0, 30)}...`
+                      : value.description}
+                  </Text>
+                </View>
+                <View>
+                  <Text
+                    style={{
+                      fontSize: 18,
+                      fontWeight: 'bold',
+                      color: '#333',
+                      paddingVertical: 5,
+                    }}>
+                    Rs {value.price}
+                  </Text>
+                </View>
+
+                <TouchableOpacity
+                  onPress={() => deleteFn(value.key)}
+                  style={{
+                    width: '100%',
+                    height: 50,
+                    backgroundColor: 'red',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    borderRadius: 10,
+                    marginVertical: 5,
+                    flexDirection: 'row',
+                  }}>
+                  <Text
+                    style={{
+                      color: '#fff',
+                      fontSize: 18,
+                      fontWeight: 'bold',
+                      paddingRight: 5,
+                    }}>
+                    Delete
+                  </Text>
+                  <Icon name="delete" color={'#fff'} size={22} />
+                </TouchableOpacity>
               </TouchableOpacity>
             );
           })}
         </ScrollView>
       ) : (
-        <View>
+        <View style={{padding: 10}}>
           <Text>{flag}</Text>
         </View>
       )}

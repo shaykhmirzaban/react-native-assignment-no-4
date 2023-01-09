@@ -29,7 +29,6 @@ function LoginScreen({navigation}) {
         } else {
           navigate('HomeScreen');
         }
-      } else {
       }
     });
   }, []);
@@ -66,6 +65,7 @@ function LoginScreen({navigation}) {
         setFlag(false);
       });
   };
+
   return (
     <View style={{width: '100%', height: '100%', backgroundColor: '#fff'}}>
       <Image
@@ -79,7 +79,13 @@ function LoginScreen({navigation}) {
         <View>
           {/* heading */}
           <View style={{paddingBottom: 15}}>
-            <Text style={{fontSize: 27, fontWeight: 'bold', color: '#1D1200'}}>
+            <Text
+              style={{
+                fontSize: 30,
+                fontWeight: 'bold',
+                color: '#1D1200',
+                textAlign: 'center',
+              }}>
               Login
             </Text>
           </View>
@@ -97,7 +103,7 @@ function LoginScreen({navigation}) {
               }}
               placeholderTextColor="#1D1200"
               placeholder="Email"
-              onChangeText={e => setData({...data, email: e})}
+              onChangeText={e => setData({...data, email: e.toLowerCase()})}
               keyboardType="email-address"
             />
             <TextInput

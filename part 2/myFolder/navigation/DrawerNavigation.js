@@ -23,6 +23,7 @@ function DrawerNavigation({navigation, route}) {
           drawerActiveBackgroundColor: '#fad7a0',
           drawerActiveTintColor: '#1D1200',
           drawerLabel: 'Home',
+          drawerLabelStyle: {paddingHorizontal: 20},
         }}
       />
     </Drawer.Navigator>

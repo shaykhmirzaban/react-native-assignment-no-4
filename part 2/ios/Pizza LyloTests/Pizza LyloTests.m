@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface Pizza_lyloTests : XCTestCase
+@interface Pizza LyloTests : XCTestCase
 
 @end
 
-@implementation Pizza_lyloTests
+@implementation Pizza LyloTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL (^)(UIView *view))test
 {
